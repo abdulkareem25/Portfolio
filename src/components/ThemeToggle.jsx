@@ -36,9 +36,9 @@ export const ThemeToggle = () => {
       )}
     >
       {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300 hover:text-yellow-200" />
+        <Sun className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors duration-300" />
       ) : (
-        <Moon className="h-6 w-6 text-blue-900 hover:text-blue-500" />
+        <Moon className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors duration-300" />
       )}
     </button>
   );

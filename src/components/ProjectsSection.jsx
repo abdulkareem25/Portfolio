@@ -12,13 +12,13 @@ const projects = [
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "DevSync",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
+      "Collaborate in real time. Build projects, chat, and use AI for coding - all in one platform.",
     image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
+    tags: ["MERN", "WebContainers", "Socket.io"],
+    demoUrl: "https://dev-syncs.vercel.app/",
+    githubUrl: "https://github.com/abdulkareem25/Dev-Sync/",
   },
   {
     id: 3,

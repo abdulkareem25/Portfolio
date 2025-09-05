@@ -1,15 +1,38 @@
 import { useEffect, useState } from "react";
 
-// id, size, x, y, opacity, animationDuration
-// id, size, x, y, delay, animationDuration
-
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    generateStars();
-    generateMeteors();
+    const theme = localStorage.getItem("theme");
+    setIsDarkMode(theme === "dark");
+
+    if (theme === "dark") {
+      generateStars();
+      generateMeteors();
+    } else {
+      setStars([]);
+      setMeteors([]);
+    }
+
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setIsDarkMode(isDark);
+      if (isDark) {
+        generateStars();
+        generateMeteors();
+      } else {
+        setStars([]);
+        setMeteors([]);
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     const handleResize = () => {
       generateStars();
@@ -42,9 +65,11 @@ export const StarBackground = () => {
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = 7;
-    const minGap = 7; // 7% gap between meteors
-    const maxX = 60; // Meteors only in the left 60% of the screen
+    const numberOfMeteors = window.innerWidth < 768 ? 7 : 7;
+    const minGap = window.innerWidth < 768 ? 25 : 7;
+    const maxX = window.innerWidth < 768 ? 15 : 55;
+    const startY = window.innerWidth < 768 ? 10 : 0;
+    const maxY = window.innerWidth < 768 ? 70 : 20;
     const newMeteors = [];
     const xPositions = [];
 
@@ -52,9 +77,8 @@ export const StarBackground = () => {
       let x;
       let attempts = 0;
       do {
-        x = Math.random() * maxX; // Only left side
+        x = Math.random() * maxX;
         attempts++;
-        // Prevent infinite loop in rare case
         if (attempts > 100) break;
       } while (xPositions.some((xp) => Math.abs(x - xp) < minGap));
       xPositions.push(x);
@@ -62,9 +86,11 @@ export const StarBackground = () => {
         id: i,
         size: Math.random() * 2 + 1,
         x: x,
-        y: Math.random() * 20,
-        delay: Math.random() * 15,
-        animationDuration: Math.random() * 3 + 3,
+        y: Math.random() * (maxY - startY) + startY,
+        delay: Math.random() * 25,
+        animationDuration: Math.random() * 2 + 3,
+        endX: 100,
+        endY: 100,
       });
     }
 

@@ -28,7 +28,7 @@ export const ContactSection = () => {
     }, 1500);
   };
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section id="contact" className="py-20 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary"> Touch</span>
@@ -40,7 +40,7 @@ export const ContactSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="p-8 flex flex-col gap-15">
+          <div className="md:p-8 flex flex-col gap-15">
             <h3 className="text-2xl font-semibold">
               
               Contact Information
@@ -102,7 +102,7 @@ export const ContactSection = () => {
           </div>
 
           <div
-            className="bg-card p-8 rounded-lg shadow-xs"
+            className="bg-card md:p-8 p-6 rounded-lg shadow-xs"
             onSubmit={handleSubmit}
           >
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>

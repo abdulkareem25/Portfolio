@@ -153,8 +153,8 @@ export const ProjectsSection = () => {
 	return (
 		<section id="projects" className="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-background to-secondary/20">
 			<div className="container mx-auto max-w-5xl">
-				<div className="text-center mb-12 lg:mb-0">
-					<h2 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+				<div className="text-center mb-6 lg:mb-0">
+					<h2 className="text-4xl md:text-5xl font-bold mb-7 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
 						Featured <span className="text-primary">Projects</span>
 					</h2>
 					<p className="text-lg text-muted-foreground max-w-3xl mb-2 mx-auto leading-relaxed">
@@ -198,7 +198,7 @@ export const ProjectsSection = () => {
 							return (
 								<div
 									key={uniqueKey}
-									className="project-card flex-none w-[280px] lg:w-[340px] snap-center"
+									className="project-card flex-none w-[280px] lg:w-[350px] snap-center"
 									style={{ scrollSnapAlign: 'center' }}
 									aria-hidden={isClone ? true : false}
 								>
@@ -235,7 +235,7 @@ export const ProjectsSection = () => {
 											<h3 className="text-lg lg:text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
 												{project.title}
 											</h3>
-											<p className="text-muted-foreground text-sm lg:text-base mb-4 line-clamp-3 leading-relaxed flex-1">
+											<p className="text-muted-foreground text-sm lg:text-base mb-1 line-clamp-3 leading-relaxed flex-1">
 												{project.description}
 											</p>
 
@@ -257,7 +257,7 @@ export const ProjectsSection = () => {
 					</div>
 				</div>
 
-				<div className="text-center mt-12 lg:mt-2.5">
+				<div className="text-center mt-12 lg:mt-4">
 					<a className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25" target="_blank" rel="noopener noreferrer" href="https://github.com/abdulkareem25">
 						<span>View All Projects</span>
 						<ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

@@ -160,3 +160,8 @@
   padding: 0;
   text-align: center;
 }
+
+.scroll-lock {
+  overflow: hidden;
+  height: 100vh;
+}

@@ -16,24 +16,26 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Detect scroll for background change
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Body scroll lock jab menu open ho
+  // Lock/unlock body scroll via CSS class
   useEffect(() => {
-    if (!isMenuOpen) return;
-    const y = window.scrollY;
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${y}px`;
-    return () => {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      window.scrollTo(0, y);
-    };
+    if (isMenuOpen) {
+      document.body.classList.add("scroll-lock");
+    } else {
+      document.body.classList.remove("scroll-lock");
+    }
   }, [isMenuOpen]);
+
+  // Close menu when clicking a nav link
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <>
@@ -52,7 +54,8 @@ export const Navbar = () => {
             href="#hero"
           >
             <span className="relative z-10">
-              <span className="text-glow text-foreground"> Abdul Kareem </span>
+              <span className="text-glow text-foreground"> Abdul </span>
+              Kareem
             </span>
           </a>
 
@@ -86,7 +89,7 @@ export const Navbar = () => {
         </div>
       </nav>
 
-      {/* MOBILE OVERLAY VIA PORTAL (outside nav stacking context) */}
+      {/* MOBILE OVERLAY VIA PORTAL */}
       {isMenuOpen &&
         createPortal(
           <div
@@ -111,8 +114,8 @@ export const Navbar = () => {
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={handleLinkClick}
                   className="md:text-foreground/80 hover:text-primary text-primary transition-colors duration-300"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>

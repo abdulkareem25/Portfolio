@@ -37,12 +37,12 @@ export const SkillsSection = () => {
   return (
     <section id="skills" className="py-20 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-9 text-center">
           My <span className="text-primary"> Skills</span>
         </h2>
 
         {/* Categories: horizontally scrollable on small screens */}
-        <div className="-mx-4 mb-12">
+        <div className="-mx-4 mb-12 md:mb-7">
           <div className="overflow-x-auto hide-scrollbar px-4 py-2 md:overflow-visible">
             <div className="inline-flex md:flex md:flex-wrap md:justify-center gap-4 items-center">
               {categories.map((category, key) => (
@@ -68,7 +68,7 @@ export const SkillsSection = () => {
           className={cn(
             // responsive height optimized for ~6" phones and up
             "overflow-y-auto hide-scrollbar backdrop-blur-sm rounded-lg px-4",
-            "h-[55vh] md:h-[481px]",
+            "h-[60vh] md:h-[481px]",
             // light / dark-friendly background and subtle border for contrast
             "bg-white/8 dark:bg-neutral-900/30 border border-neutral-200/5 dark:border-neutral-700/40"
           )}

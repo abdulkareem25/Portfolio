@@ -153,11 +153,11 @@ export const ProjectsSection = () => {
 	return (
 		<section id="projects" className="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-background to-secondary/20">
 			<div className="container mx-auto max-w-5xl">
-				<div className="text-center mb-16 lg:mb-0">
-					<h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+				<div className="text-center mb-12 lg:mb-0">
+					<h2 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
 						Featured <span className="text-primary">Projects</span>
 					</h2>
-					<p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+					<p className="text-lg text-muted-foreground max-w-3xl mb-2 mx-auto leading-relaxed">
 						Here are some of my recent projects. Each project was carefully crafted with attention to detail, performance, and user experience.
 					</p>
 				</div>
@@ -184,7 +184,7 @@ export const ProjectsSection = () => {
 					{/* Scroll container */}
 					<div
 						ref={containerRef}
-						className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide lg:py-6 px-4 lg:px-8"
+						className="flex gap-6 py-4 lg:gap-8 overflow-x-auto rounded-lg backdrop-blur-sm snap-x snap-mandatory scrollbar-hide lg:py-6 px-4 lg:px-8 bg-white/8 dark:bg-neutral-900/30 border border-neutral-200/5 dark:border-neutral-700/40"
 						style={{
 							scrollBehavior: 'smooth',
 							webkitOverflowScrolling: 'touch',
@@ -202,7 +202,7 @@ export const ProjectsSection = () => {
 									style={{ scrollSnapAlign: 'center' }}
 									aria-hidden={isClone ? true : false}
 								>
-									<div className="group bg-card/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-border/50 hover:border-primary/20 h-full flex flex-col">
+									<div className="group bg-card/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-border/50 hover:border-primary/20 h-full flex flex-col">
 										<div className="h-40 lg:h-48 overflow-hidden bg-gradient-to-br from-muted to-muted/70 relative">
 											<img
 												src={project.image}
@@ -257,7 +257,7 @@ export const ProjectsSection = () => {
 					</div>
 				</div>
 
-				<div className="text-center mt-16 lg:mt-2.5">
+				<div className="text-center mt-12 lg:mt-2.5">
 					<a className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25" target="_blank" rel="noopener noreferrer" href="https://github.com/abdulkareem25">
 						<span>View All Projects</span>
 						<ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

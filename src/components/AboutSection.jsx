@@ -28,17 +28,16 @@ export const AboutSection = () => {
               landscape.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
-                {" "}
-                Get In Touch
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center items-center">
+              <a className="group inline-flex items-center gap-3 px-15 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25">
+                <span>Get In Touch</span>
               </a>
 
               <a
                 href="./Resume.pdf"
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-white border border-primary text-primary rounded-full font-semibold transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-md hover:shadow-primary/25"
               >
-                Download Resume
+                <span>Download Resume</span>
               </a>
             </div>
           </div>

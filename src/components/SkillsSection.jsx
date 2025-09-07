@@ -50,7 +50,7 @@ export const SkillsSection = () => {
                   key={key}
                   onClick={() => setActiveCategory(category)}
                   className={cn(
-                    "group inline-flex items-center capitalize gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25",
+                    "group inline-flex cursor-pointer items-center capitalize gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25",
                     activeCategory === category
                       ? "bg-primary text-primary-foreground"
                       : "bg-secondary/70 text-foreground hover:bg-secondary"

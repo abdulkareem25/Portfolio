@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import { getProjects } from "../services/api";
 
 const projects = [
 	{ id: 1, title: "SaaS Landing Page", description: "A beautiful landing page app using React and Tailwind.", image: "/projects/project1.png", tags: ["React", "TailwindCSS", "Supabase"], demoUrl: "#", githubUrl: "#" },
@@ -16,6 +17,8 @@ export const ProjectsSection = () => {
 	const [isAnimating, setIsAnimating] = useState(false);
 	const animationDuration = 450; // ms (keeps in sync with smooth scroll perception)
 	const n = projects.length;
+
+	const [projectss, setProjectss] = useState([])
 
 	// helper: compute sizes (card width + gap) using measured DOM
 	const measure = () => {
@@ -150,8 +153,21 @@ export const ProjectsSection = () => {
 		projects[0], // clone first at end
 	];
 
+	useEffect(() => {
+		const fetchProjects = async () => {
+			try {
+				const response = await getProjects();
+				setProjectss(response.data)
+			} catch (err) {
+				console.error("Error Fetching Projects: ",err)
+			}
+		}
+		fetchProjects()
+	},[])
+	console.log(projectss)
+
 	return (
-		<section id="projects" className="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-background to-secondary/20">
+		<section id="projects" className="py-20 px-4 relative overflow-hidden">
 			<div className="container mx-auto max-w-5xl">
 				<div className="text-center mb-6 lg:mb-0">
 					<h2 className="text-4xl md:text-5xl font-bold mb-7 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">

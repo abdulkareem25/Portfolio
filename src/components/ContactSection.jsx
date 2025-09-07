@@ -28,7 +28,7 @@ export const ContactSection = () => {
     }, 1500);
   };
   return (
-    <section id="contact" className="py-20 px-4 relative bg-secondary/30">
+    <section id="contact" className="py-20 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary"> Touch</span>
@@ -40,13 +40,13 @@ export const ContactSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="md:p-8 flex flex-col gap-15">
+          <div className="md:p-8 flex flex-col gap-15 items-center">
             <h3 className="text-2xl font-semibold">
               
               Contact Information
             </h3>
 
-            <div className="space-y-7 justify-center -ml-8">
+            <div className="space-y-7 justify-center md:-ml-8">
               <div className="flex items-start space-x-7 md:space-x-15">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Mail className="h-6 w-6 text-primary" />{" "}
@@ -165,7 +165,7 @@ export const ContactSection = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25"
+                  "group inline-flex cursor-pointer items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25"
                 )}
               >
                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>

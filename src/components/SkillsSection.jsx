@@ -70,7 +70,7 @@ export const SkillsSection = () => {
             "overflow-y-auto hide-scrollbar backdrop-blur-sm rounded-lg px-4",
             "h-[60vh] md:h-[481px]",
             // light / dark-friendly background and subtle border for contrast
-            "bg-white/8 dark:bg-neutral-900/30 border border-neutral-200/5 dark:border-neutral-700/40"
+            "bg-gradient-to-br from-background/20 to-muted/20"
           )}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           aria-label="Skills list (scrollable)"

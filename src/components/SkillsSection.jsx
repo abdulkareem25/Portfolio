@@ -41,7 +41,7 @@ export const SkillsSection = () => {
           My <span className="text-primary"> Skills</span>
         </h2>
 
-        {/* Categories: horizontally scrollable on small screens */}
+        {/* Categories */}
         <div className="-mx-4 mb-12 md:mb-7">
           <div className="overflow-x-auto hide-scrollbar px-4 py-2 md:overflow-visible">
             <div className="inline-flex md:flex md:flex-wrap md:justify-center gap-4 items-center">
@@ -53,7 +53,7 @@ export const SkillsSection = () => {
                     "group inline-flex cursor-pointer items-center capitalize gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25",
                     activeCategory === category
                       ? "bg-primary text-primary-foreground"
-                      : "bg-secondary/70 text-foreground hover:bg-secondary"
+                      : "bg-secondary/70 text-foreground hover:bg-secondary hover:text-primary transition-colors"
                   )}
                 >
                   {category}
@@ -63,40 +63,27 @@ export const SkillsSection = () => {
           </div>
         </div>
 
-        {/* Scrollable area that shows ~3 rows initially */}
+        {/* Skills */}
         <div
           className={cn(
-            // responsive height optimized for ~6" phones and up
             "overflow-y-auto hide-scrollbar backdrop-blur-sm rounded-lg px-4",
             "h-[60vh] md:h-[481px]",
-            // light / dark-friendly background and subtle border for contrast
             "bg-gradient-to-br from-background/20 to-muted/20"
           )}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           aria-label="Skills list (scrollable)"
         >
-          {/* Group skills into rows of 3 so we can center incomplete rows */}
+          {/* Group skills */}
           {(() => {
             const rows = [];
             for (let i = 0; i < filteredSkills.length; i += 3) {
               rows.push(filteredSkills.slice(i, i + 3));
             }
             return rows.map((row, rowIndex) => {
-              const emptySlots = 3 - row.length;
-              const leftPlaceholders = Math.floor(emptySlots / 2);
-              const rightPlaceholders = emptySlots - leftPlaceholders;
-
-              // Use flex for all rows and give each card a fixed, non-shrinking width of 220px
-              const rowWrapperClass = "flex justify-center gap-4 my-4 flex-wrap";
-
-              // fixed width 220px as requested; slightly smaller gaps for mobile
-              const cardClass =
-                "bg-card p-4 rounded-lg shadow-xs card-hover min-h-[10vh] md:h-[135px] w-[60vw] md:w-[290px] flex-shrink-0";
-
               return (
-                <div key={rowIndex} className={rowWrapperClass}>
+                <div key={rowIndex} className="flex justify-center gap-5 my-5 flex-wrap">
                   {row.map((skill, key) => (
-                    <div key={key} className={cardClass}>
+                    <div key={key} className="bg-card p-4 rounded-lg shadow-xs card-hover min-h-[10vh] md:h-[115px] w-[60vw] md:w-[275px] flex-shrink-0">
                       <div className="text-left mb-4">
                         <h3 className="font-semibold text-lg"> {skill.name}</h3>
                       </div>

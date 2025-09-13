@@ -1,24 +1,7 @@
 import { useState, useEffect } from "react";
 import { ExternalLink, Github } from "lucide-react";
 
-const ProjectCard = ({ projects, project, position, index, isCenter, onSlideClick, transitionDuration }) => {
-    const [imageLoadStates, setImageLoadStates] = useState({});
-
-    // Pre-load all images to prevent blinking
-    useEffect(() => {
-        projects.forEach((p) => {
-            if (!imageLoadStates[p.id]) {
-                const img = new Image();
-                img.onload = () => {
-                    setImageLoadStates(prev => ({ ...prev, [p.id]: true }));
-                };
-                img.onerror = () => {
-                    setImageLoadStates(prev => ({ ...prev, [p.id]: false }));
-                };
-                img.src = p.image;
-            }
-        });
-    }, [projects, imageLoadStates]); // Dependencies added for correctness, though logic remains the same
+const ProjectCard = ({ project, position, index, isCenter, onSlideClick, transitionDuration }) => {
 
     const getCardTransform = (position) => {
         if (position === 0) {
@@ -41,7 +24,7 @@ const ProjectCard = ({ projects, project, position, index, isCenter, onSlideClic
     };
 
     const getImageSrc = () => {
-        if (imageLoadStates[project.id] === false) {
+        if (project.imageUrl === "#") {
             return `data:image/svg+xml;base64,${btoa(`
                 <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100%" height="100%" fill="#f1f5f9"/>
@@ -51,7 +34,7 @@ const ProjectCard = ({ projects, project, position, index, isCenter, onSlideClic
                 </svg>
             `)}`;
         }
-        return project.image;
+        return project.imageUrl;
     };
 
     return (
@@ -88,9 +71,9 @@ const ProjectCard = ({ projects, project, position, index, isCenter, onSlideClic
 
                 <div className="p-4 lg:p-6 flex flex-col flex-1">
                     <div className="flex justify-center flex-wrap gap-2 mb-3">
-                        {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                            <span key={tagIndex} className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors duration-200">
-                                {tag}
+                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                            <span key={techIndex} className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors duration-200">
+                                {tech}
                             </span>
                         ))}
                     </div>

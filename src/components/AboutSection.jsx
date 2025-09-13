@@ -36,7 +36,8 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="./Resume.pdf"
+                href="https://drive.google.com/file/d/16PlR4360p4FmzUXt7DWRqVPtvr11UoJB/view?usp=sharing"
+                target="_blank"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-white border border-primary text-primary rounded-full font-semibold transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-md hover:shadow-primary/25"
               >
                 <span>Download Resume</span>

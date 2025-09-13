@@ -1,38 +1,64 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/library/utils";
+import { getSkills } from "../services/api";
 
-const skills = [
-  // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", level: 90, category: "frontend" },
-  { name: "Next.js", level: 80, category: "frontend" },
+// const skills = [
+//   // Frontend
+//   { name: "HTML/CSS", level: 95, category: "frontend" },
+//   { name: "JavaScript", level: 90, category: "frontend" },
+//   { name: "React", level: 90, category: "frontend" },
+//   { name: "TypeScript", level: 85, category: "frontend" },
+//   { name: "Tailwind CSS", level: 90, category: "frontend" },
+//   { name: "Next.js", level: 80, category: "frontend" },
 
-  // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "PostgreSQL", level: 65, category: "backend" },
-  { name: "GraphQL", level: 60, category: "backend" },
+//   // Backend
+//   { name: "Node.js", level: 80, category: "backend" },
+//   { name: "Express", level: 75, category: "backend" },
+//   { name: "MongoDB", level: 70, category: "backend" },
+//   { name: "MongoDB", level: 70, category: "backend" },
+//   { name: "MongoDB", level: 70, category: "backend" },
+//   { name: "PostgreSQL", level: 65, category: "backend" },
+//   { name: "GraphQL", level: 60, category: "backend" },
 
-  // Tools
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "Docker", level: 70, category: "tools" },
-  { name: "Figma", level: 85, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
-];
+//   // Tools
+//   { name: "Git/GitHub", level: 90, category: "tools" },
+//   { name: "Docker", level: 70, category: "tools" },
+//   { name: "Figma", level: 85, category: "tools" },
+//   { name: "VS Code", level: 95, category: "tools" },
+// ];
 
-const categories = ["all", "frontend", "backend", "tools"];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+
+  const [categories, setCategories] = useState([
+    "All",
+    "Frontend",
+    "Backend",
+    "Tools",
+    "Soft Skills",
+    "Others"
+  ]);
+  const [skills, setSkills] = useState([])
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const response = await getSkills();
+
+        setSkills(response.data)
+        console.log(response.data)
+
+      } catch (err) {
+        console.error("Error Fetching skills: ", err)
+      }
+    }
+    fetchSkills()
+  }, [])
+
 
   const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
+    (skill) => activeCategory === "All" || skill.category === activeCategory
   );
   return (
     <section id="skills" className="py-20 px-4 relative bg-secondary/30">
@@ -50,7 +76,7 @@ export const SkillsSection = () => {
                   key={key}
                   onClick={() => setActiveCategory(category)}
                   className={cn(
-                    "group inline-flex cursor-pointer items-center capitalize gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25",
+                    "group inline-flex cursor-pointer items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-l hover:shadow-primary/25",
                     activeCategory === category
                       ? "bg-primary text-primary-foreground"
                       : "bg-secondary/70 text-foreground hover:bg-secondary hover:text-primary transition-colors"

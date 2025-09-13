@@ -181,3 +181,13 @@
 					-webkit-box-orient: vertical;
 					overflow: hidden;
 }
+
+.loaders {
+  @apply flex items-center justify-center;
+}
+.loaders > * + * {
+  @apply ml-4;
+}
+.loader {
+  @apply border-4 border-t-4 border-primary border-t-transparent rounded-full w-8 h-8 animate-spin;
+}

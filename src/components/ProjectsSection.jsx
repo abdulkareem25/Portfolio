@@ -3,20 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard.jsx";
 import { getProjects } from "../services/api";
 
-const projects = [
-    { id: 1, title: "SaaS Landing Page", description: "A beautiful landing page app using React and Tailwind.", image: "/projects/project1.png", tags: ["React", "TailwindCSS", "Supabase"], demoUrl: "#", githubUrl: "#" },
-    { id: 2, title: "DevSync", description: "Collaborate in real time. Build projects, chat, and use AI for coding - all in one platform.", image: "/projects/portfolio.png", tags: ["MERN", "WebContainers", "Socket.io"], demoUrl: "https://dev-syncs.vercel.app/", githubUrl: "https://github.com/abdulkareem25/Dev-Sync/" },
-    { id: 3, title: "E-commerce Platform", description: "Full-featured e-commerce platform with user authentication and payment processing.", image: "/projects/project3.png", tags: ["React", "Node.js", "Stripe"], demoUrl: "#", githubUrl: "#" },
-    { id: 4, title: "Task Management App", description: "Intuitive task management application with drag-and-drop functionality and real-time updates.", image: "/projects/project4.png", tags: ["React", "Node.js", "MongoDB"], demoUrl: "#", githubUrl: "#" },
-    { id: 5, title: "Portfolio Website", description: "Modern portfolio website with dark mode, animations, and responsive design.", image: "/projects/project5.png", tags: ["Next.js", "TypeScript", "Framer Motion"], demoUrl: "#", githubUrl: "#" },
-    { id: 6, title: "Chat Application", description: "Real-time chat application with file sharing, emojis, and group messaging features.", image: "/projects/project6.png", tags: ["React", "Firebase", "WebRTC"], demoUrl: "#", githubUrl: "#" },
-];
-
 export const ProjectsSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const transitionDuration = 400;
-    const [projectss, setProjectss] = useState({}); // Note: this state is fetched but not used in the original code
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
     const touchStartRef = useRef(0);
     const touchEndRef = useRef(0);
     const totalProjects = projects.length;
@@ -65,12 +57,14 @@ export const ProjectsSection = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [isTransitioning]); // Added isTransitioning dependency to get the latest function closures
 
-    // Get projects from API (Note: this is from your original code, but the 'projects' const is used for rendering)
+    // Get projects from API
     useEffect(() => {
         const fetchProjects = async () => {
             try {
                 const response = await getProjects();
-                setProjectss(response.data);
+                setProjects(response.data);
+                setLoading(false);
+                // console.log('Fetched projects:', response.data);
             } catch (err) {
                 console.error("Error Fetching Projects: ", err);
             }
@@ -90,62 +84,73 @@ export const ProjectsSection = () => {
                     </p>
                 </div>
 
-                <div className="relative max-w-4xl mx-auto">
-                    <div
-                        className="relative h-[450px] lg:h-[520px] rounded-2xl flex items-center justify-center"
-                        onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
-                        onTouchEnd={handleTouchEnd}
-                        role="region"
-                        aria-label="Projects carousel"
-                    >
-                        {/* THE KEY CHANGE IS HERE: Map over all projects and calculate their position */}
-                        {projects.map((project, index) => {
-                            let position = index - currentIndex;
-                            const half = totalProjects / 2;
-
-                            // This logic handles the circular wrapping of the carousel
-                            if (position > half) {
-                                position -= totalProjects;
-                            } else if (position < -half) {
-                                position += totalProjects;
-                            }
-
-                            return (
-                                <ProjectCard
-                                    key={project.id} // Use a stable and unique key
-                                    projects={projects}
-                                    project={project}
-                                    position={position}
-                                    index={index}
-                                    isCenter={position === 0}
-                                    onSlideClick={goToSlide}
-                                    transitionDuration={transitionDuration}
-                                />
-                            );
-                        })}
+                {loading ? (
+                    <div className="flex justify-center items-center h-64">
+                        <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16"></div>
                     </div>
+                ) : (
+                    projects.length > 0 ? (
+                        <div className="relative max-w-4xl mx-auto">
+                            <div
+                                className="relative h-[450px] lg:h-[520px] rounded-2xl flex items-center justify-center"
+                                onTouchStart={handleTouchStart}
+                                onTouchMove={handleTouchMove}
+                                onTouchEnd={handleTouchEnd}
+                                role="region"
+                                aria-label="Projects carousel"
+                            >
+                                {/* THE KEY CHANGE IS HERE: Map over all projects and calculate their position */}
+                                {projects.map((project, index) => {
+                                    let position = index - currentIndex;
+                                    const half = totalProjects / 2;
 
-                    {/* Navigation Buttons */}
-                    <button onClick={goToPrevious} disabled={isTransitioning} className={`absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-30 p-2 lg:p-3 rounded-full bg-background/95 backdrop-blur-sm shadow-xl border border-border/50 transition-all duration-300 hover:bg-background hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:shadow-2xl'}`} aria-label="Previous project">
-                        <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-foreground" />
-                    </button>
-                    <button onClick={goToNext} disabled={isTransitioning} className={`absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-30 p-2 lg:p-3 rounded-full bg-background/95 backdrop-blur-sm shadow-xl border border-border/50 transition-all duration-300 hover:bg-background hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:shadow-2xl'}`} aria-label="Next project">
-                        <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-foreground" />
-                    </button>
+                                    // This logic handles the circular wrapping of the carousel
+                                    if (position > half) {
+                                        position -= totalProjects;
+                                    } else if (position < -half) {
+                                        position += totalProjects;
+                                    }
 
-                    {/* Dots Navigation */}
-                    <div className="flex justify-center gap-2 mt-8">
-                        {projects.map((_, index) => (
-                            <button
-                                key={`dot-${index}`}
-                                onClick={() => goToSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${index === currentIndex ? 'bg-primary scale-125 shadow-lg' : 'bg-primary/25 hover:scale-110'}`}
-                                aria-label={`Go to project ${index + 1}`}
-                            />
-                        ))}
-                    </div>
-                </div>
+                                    return (
+                                        <ProjectCard
+                                            key={project.id} 
+                                            projects={projects}
+                                            project={project}
+                                            position={position}
+                                            index={index}
+                                            isCenter={position === 0}
+                                            onSlideClick={goToSlide}
+                                            transitionDuration={transitionDuration}
+                                        />
+                                    );
+                                })}
+                            </div>
+
+                            {/* Navigation Buttons */}
+                            <button onClick={goToPrevious} disabled={isTransitioning} className={`absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-30 p-2 lg:p-3 rounded-full bg-background/95 backdrop-blur-sm shadow-xl border border-border/50 transition-all duration-300 hover:bg-background hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:shadow-2xl'}`} aria-label="Previous project">
+                                <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-foreground" />
+                            </button>
+                            <button onClick={goToNext} disabled={isTransitioning} className={`absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-30 p-2 lg:p-3 rounded-full bg-background/95 backdrop-blur-sm shadow-xl border border-border/50 transition-all duration-300 hover:bg-background hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:shadow-2xl'}`} aria-label="Next project">
+                                <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-foreground" />
+                            </button>
+
+                            {/* Dots Navigation */}
+                            <div className="flex justify-center gap-2 mt-8">
+                                {projects.map((_, index) => (
+                                    <button
+                                        key={`dot-${index}`}
+                                        onClick={() => goToSlide(index)}
+                                        className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${index === currentIndex ? 'bg-primary scale-125 shadow-lg' : 'bg-primary/25 hover:scale-110'}`}
+                                        aria-label={`Go to project ${index + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
+                        <p className="text-center text-muted-foreground">No projects available at the moment. Please check back later.</p>
+                    )
+                )}
+
 
                 <div className="text-center mt-16">
                     <a className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full font-semibold transition-all duration-300 hover:scale-105" target="_blank" rel="noopener noreferrer" href="https://github.com/abdulkareem25">

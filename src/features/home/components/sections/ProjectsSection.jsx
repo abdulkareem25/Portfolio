@@ -74,7 +74,7 @@ const PROJECTS = [
       "A simple and elegant notes application built with React and Vite. It lets users create, view, and manage notes with persistent local storage.",
     techStack: ["React", "Vite", "Local Storage", "CSS"],
     githubLink: "https://github.com/abdulkareem25/notes-app",
-    liveLink: "https://your-live-link.com",
+    liveLink: "https://your-liv-link.com",
     image: "/images/projects/notes-app.png",
   },
 ];

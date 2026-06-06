@@ -39,7 +39,7 @@ const ProjectCard = ({ project, position, index, isCenter, onSlideClick, transit
             role={isSide ? "button" : undefined}
             tabIndex={isCenter ? 0 : -1}
         >
-            <div className="group bg-card/60 backdrop-blur-xl rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 border border-border/50 hover:border-primary/30 flex flex-col h-[400px] lg:h-[460px]">
+            <div className="group bg-card/60 backdrop-blur-xl rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 border border-border/50 hover:border-primary/30 flex flex-col h-[420px] lg:h-[460px]">
 
                 {/* Image */}
                 <div className="h-48 lg:h-56 overflow-hidden bg-muted/20 relative shrink-0">
@@ -83,7 +83,7 @@ const ProjectCard = ({ project, position, index, isCenter, onSlideClick, transit
                     </div>
 
                     {/* Links */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-border/40 mt-auto">
+                    <div className="flex items-center gap-3 pt-4 border-t border-border/40 mt-auto shrink-0">
                         <ProjectLink href={project.liveLink} icon={<ExternalLink className="w-4 h-4" />} label="Live Demo" primary />
                         <ProjectLink href={project.githubLink} icon={<Github className="w-4 h-4" />} label="Source Code" />
                     </div>

@@ -63,7 +63,7 @@ export const ProjectsSection = () => {
                 {/* Heading */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Featured <span className="text-primary/60">Projects</span>
+                        Featured <span className="text-primary">Projects</span>
                     </h2>
                     <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base leading-relaxed">
                         Here are some of my recent projects, each crafted with attention to detail, performance, and user experience.

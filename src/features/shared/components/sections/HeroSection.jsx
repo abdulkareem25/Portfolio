@@ -8,18 +8,26 @@ export const HeroSection = () => {
     >
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl opacity-50" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl opacity-60" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl opacity-50" />
       </div>
 
       <div className="container max-w-5xl mx-auto text-center z-10">
         <div className="space-y-10">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-            <span className="opacity-0 animate-fade-in block text-foreground/80 text-3xl md:text-5xl mb-3 font-bold">Hi, I'm</span>
+            <span className="opacity-0 animate-fade-in block text-foreground/70 text-3xl md:text-5xl mb-3 font-bold">Hi, I'm</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1 inline-block">
               Abdul
             </span>
-            <span className="text-foreground opacity-0 animate-fade-in-delay-2 inline-block ml-3 text-glow">
+            <span
+              className="opacity-0 animate-fade-in-delay-2 inline-block ml-3 text-glow"
+              style={{
+                background: "linear-gradient(135deg, hsl(var(--foreground)) 40%, hsl(var(--primary)) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               Kareem
             </span>
           </h1>

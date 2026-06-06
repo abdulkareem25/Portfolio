@@ -39,7 +39,7 @@ export const AboutSection = () => {
         {/* ── Section header ── */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="text-primary/60">Me</span>
+            About <span className="text-primary">Me</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base leading-relaxed">
             A developer who loves turning complex ideas into clean, elegant
@@ -107,7 +107,7 @@ export const AboutSection = () => {
               {EXPERTISE.map(({ icon: Icon, title, description }) => (
                 <div
                   key={title}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-border/30 hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-muted/40 border border-border/40 hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 group"
                 >
                   <div className="flex-shrink-0 p-3 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-200">
                     <Icon className="h-5 w-5 text-primary" />

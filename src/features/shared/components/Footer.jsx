@@ -2,7 +2,7 @@ import { ArrowUp, Heart } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="py-8 bg-card/50 backdrop-blur-sm border-t border-border/50 relative flex flex-col items-center justify-center gap-4 mt-12">
+    <footer className="py-8 bg-card/50 backdrop-blur-sm border-t border-border/50 relative flex flex-col items-center justify-center gap-4">
       <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
         <span>Made with</span>
         <Heart size={14} className="text-red-500 animate-pulse fill-red-500" />

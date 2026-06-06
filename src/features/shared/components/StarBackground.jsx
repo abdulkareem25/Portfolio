@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 
+/* Light-mode floating orb definitions — sizes, colours, positions, durations */
+const LIGHT_ORBS = [
+  { id: 0, w: 520, h: 520, top: "-12%",  left: "-8%",  color: "hsl(250 70% 78% / 0.18)", blur: 80,  delay: "0s",   dur: "14s" },
+  { id: 1, w: 420, h: 420, top: "55%",   left: "72%",  color: "hsl(270 65% 80% / 0.16)", blur: 70,  delay: "3s",   dur: "18s" },
+  { id: 2, w: 280, h: 280, top: "30%",   left: "18%",  color: "hsl(230 60% 82% / 0.14)", blur: 60,  delay: "6s",   dur: "22s" },
+  { id: 3, w: 350, h: 350, top: "-5%",   left: "60%",  color: "hsl(260 65% 76% / 0.13)", blur: 75,  delay: "1.5s", dur: "16s" },
+  { id: 4, w: 200, h: 200, top: "75%",   left: "10%",  color: "hsl(240 55% 80% / 0.12)", blur: 50,  delay: "9s",   dur: "20s" },
+];
+
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
@@ -7,14 +16,12 @@ export const StarBackground = () => {
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
-    setIsDarkMode(theme === "dark");
+    const dark = theme === "dark";
+    setIsDarkMode(dark);
 
-    if (theme === "dark") {
+    if (dark) {
       generateStars();
       generateMeteors();
-    } else {
-      setStars([]);
-      setMeteors([]);
     }
 
     const observer = new MutationObserver(() => {
@@ -34,12 +41,8 @@ export const StarBackground = () => {
       attributeFilter: ["class"],
     });
 
-    const handleResize = () => {
-      generateStars();
-    };
-
+    const handleResize = () => { if (isDarkMode) generateStars(); };
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -47,9 +50,7 @@ export const StarBackground = () => {
     const numberOfStars = Math.floor(
       (window.innerWidth * window.innerHeight) / 10000
     );
-
     const newStars = [];
-
     for (let i = 0; i < numberOfStars; i++) {
       newStars.push({
         id: i,
@@ -60,12 +61,11 @@ export const StarBackground = () => {
         animationDuration: Math.random() * 4 + 2,
       });
     }
-
     setStars(newStars);
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = window.innerWidth < 768 ? 7 : 7;
+    const numberOfMeteors = 7;
     const minGap = window.innerWidth < 768 ? 25 : 7;
     const maxX = window.innerWidth < 768 ? 15 : 55;
     const startY = window.innerWidth < 768 ? 10 : 0;
@@ -85,46 +85,63 @@ export const StarBackground = () => {
       newMeteors.push({
         id: i,
         size: Math.random() * 2 + 1,
-        x: x,
+        x,
         y: Math.random() * (maxY - startY) + startY,
         delay: Math.random() * 25,
         animationDuration: Math.random() * 2 + 3,
-        endX: 100,
-        endY: 100,
       });
     }
-
     setMeteors(newMeteors);
   };
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {stars.map((star) => (
+
+      {/* ── Dark mode: stars + meteors ─────────────────────────── */}
+      {isDarkMode && stars.map((star) => (
         <div
           key={star.id}
           className="star animate-pulse-subtle"
           style={{
-            width: star.size + "px",
+            width:  star.size + "px",
             height: star.size + "px",
-            left: star.x + "%",
-            top: star.y + "%",
+            left:   star.x + "%",
+            top:    star.y + "%",
             opacity: star.opacity,
             animationDuration: star.animationDuration + "s",
           }}
         />
       ))}
 
-      {meteors.map((meteor) => (
+      {isDarkMode && meteors.map((meteor) => (
         <div
           key={meteor.id}
           className="meteor animate-meteor"
           style={{
-            width: meteor.size * 50 + "px",
+            width:  meteor.size * 50 + "px",
             height: meteor.size * 2 + "px",
-            left: meteor.x + "%",
-            top: meteor.y + "%",
-            animationDelay: meteor.delay,
+            left:   meteor.x + "%",
+            top:    meteor.y + "%",
+            animationDelay:    meteor.delay,
             animationDuration: meteor.animationDuration + "s",
+          }}
+        />
+      ))}
+
+      {/* ── Light mode: drifting ambient orbs ─────────────────── */}
+      {!isDarkMode && LIGHT_ORBS.map((orb) => (
+        <div
+          key={orb.id}
+          className="light-orb"
+          style={{
+            width:  orb.w + "px",
+            height: orb.h + "px",
+            top:    orb.top,
+            left:   orb.left,
+            background: orb.color,
+            filter: `blur(${orb.blur}px)`,
+            animationDelay:    orb.delay,
+            animationDuration: orb.dur,
           }}
         />
       ))}

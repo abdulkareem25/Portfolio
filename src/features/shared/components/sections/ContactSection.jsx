@@ -74,8 +74,9 @@ const Field = ({ label, id, error, children }) => (
 );
 
 const inputBase =
-  "w-full px-4 py-3 rounded-xl border bg-white/5 dark:bg-white/[0.04] backdrop-blur-sm " +
-  "border-border/60 text-foreground placeholder:text-foreground/30 " +
+  "w-full px-4 py-3 rounded-xl border " +
+  "bg-white/90 dark:bg-white/[0.04] backdrop-blur-sm " +
+  "border-border/60 text-foreground placeholder:text-muted-foreground " +
   "focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary/50 " +
   "transition-all duration-200 hover:border-primary/30 text-sm";
 
@@ -162,7 +163,7 @@ export const ContactSection = () => {
         {/* ── Section header ── */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get In <span className="text-primary/60">Touch</span>
+            Get In <span className="text-primary">Touch</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base leading-relaxed">
             Have a project in mind or want to collaborate? I&apos;m always open

@@ -50,7 +50,7 @@ export const SkillsSection = () => {
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My <span className="text-primary/60">Skills</span>
+            My <span className="text-primary">Skills</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base leading-relaxed">
             The tools, languages, and frameworks I use to bring ideas to life. Constantly learning and evolving.
@@ -82,9 +82,9 @@ export const SkillsSection = () => {
         {/* Skills Grid */}
         <div
           className={cn(
-            "overflow-y-auto themed-scrollbar backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-border/40 shadow-[0_8px_30px_rgb(0,0,0,0.12)] relative z-10",
+            "overflow-y-auto themed-scrollbar backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-border/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] relative z-10",
             "h-[50vh] sm:h-[55vh] md:h-[520px]",
-            "bg-card/30"
+            "bg-card/70"
           )}
           aria-label="Skills list (scrollable)"
         >

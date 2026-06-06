@@ -3,6 +3,7 @@ import { HomePage } from '../features/home/pages/HomePage';
 import { LoginPage } from '../features/auth/pages/Login';
 import Protected from '../features/auth/components/Protected';
 import Signup from '../features/auth/pages/Signup';
+import { NotFoundPage } from '../features/shared/components/sections/NotFoundPage';
 
 export const AppRoutes = () => {
   return (
@@ -24,6 +25,9 @@ export const AppRoutes = () => {
           </Protected>
         }
       />
+
+      {/* 404 — catch-all */}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

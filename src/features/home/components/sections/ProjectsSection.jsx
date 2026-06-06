@@ -222,7 +222,7 @@ const NavButton = ({ direction, onClick, label }) => (
     <button
         onClick={onClick}
         aria-label={label}
-        className={`absolute ${direction === "left" ? "-left-4 lg:-left-8" : "-right-4 lg:-right-8"
+        className={`hidden md:block absolute ${direction === "left" ? "-left-4 lg:-left-8" : "-right-4 lg:-right-8"
             } top-[190px] lg:top-[240px] -translate-y-1/2 z-30 p-3 rounded-2xl bg-card/60 backdrop-blur-md shadow-lg border border-border/50 transition-all duration-300 hover:bg-card/80 hover:border-primary/40 hover:scale-110 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 text-muted-foreground group`}
     >
         {direction === "left"

@@ -5,7 +5,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center pt-24 px-4 overflow-hidden"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center pt-20 pb-32 md:pt-24 md:pb-32 px-4 overflow-hidden"
     >
       {/* ── Ambient glows ── */}
       <div className="absolute inset-0 pointer-events-none">

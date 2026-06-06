@@ -41,9 +41,14 @@ export const StarBackground = () => {
       attributeFilter: ["class"],
     });
 
-    const handleResize = () => { if (isDarkMode) generateStars(); };
+    const handleResize = () => {
+      if (document.documentElement.classList.contains("dark")) generateStars();
+    };
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const generateStars = () => {

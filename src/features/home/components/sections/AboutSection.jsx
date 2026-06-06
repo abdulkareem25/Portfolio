@@ -96,7 +96,7 @@ export const AboutSection = () => {
               <p className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-widest">
                 Let&apos;s Work Together
               </p>
-              <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-col sm:flex-row gap-3 w-full">
                 {/* Get In Touch */}
                 <a
                   href="https://wa.me/+917305680655"
@@ -153,7 +153,9 @@ export const AboutSection = () => {
             </p>
 
             <div className="flex flex-col gap-4 flex-1 justify-between">
-              {EXPERTISE.map(({ icon: Icon, title, description }) => (
+              {EXPERTISE.map(
+                // eslint-disable-next-line no-unused-vars
+                ({ icon: IconComponent, title, description }) => (
                 <div
                   key={title}
                   className={cn(
@@ -175,7 +177,7 @@ export const AboutSection = () => {
                       "transition-all duration-300"
                     )}
                   >
-                    <Icon className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
+                    <IconComponent className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
                   </div>
 
                   <div className="relative text-left min-w-0">

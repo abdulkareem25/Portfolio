@@ -26,9 +26,8 @@ export const LoginPage = () => {
       } else {
         navigate('/admin');
       }
-    } catch (err) {
+    } catch {
       setError('Something went wrong. Please try again.');
-      console.error(err);
     } finally {
       setLoading(false);
     }

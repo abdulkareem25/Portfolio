@@ -63,9 +63,8 @@ const Signup = () => {
       } else {
         navigate('/admin');
       }
-    } catch (err) {
+    } catch {
       setError('Something went wrong. Please try again.');
-      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -86,7 +85,8 @@ const Signup = () => {
     e.target.style.boxShadow = 'none';
   };
 
-  const InputWrapper = ({ label, icon: Icon, children }) => (
+  // eslint-disable-next-line no-unused-vars
+  const InputWrapper = ({ label, icon: IconComponent, children }) => (
     <div className="space-y-1.5">
       <label
         className="block text-sm font-medium"
@@ -95,7 +95,7 @@ const Signup = () => {
         {label}
       </label>
       <div className="relative">
-        <Icon
+        <IconComponent
           className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"
           style={{ color: 'hsl(213,31%,60%)' }}
         />

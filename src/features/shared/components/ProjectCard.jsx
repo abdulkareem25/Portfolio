@@ -1,5 +1,5 @@
-import { ExternalLink, Github } from "lucide-react";
 import { cn } from "@/app/utils";
+import { ExternalLink, Github } from "lucide-react";
 
 const FALLBACK_SVG = (title) =>
     `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
@@ -84,8 +84,8 @@ const ProjectCard = ({ project, position, index, isCenter, onSlideClick, transit
 
                     {/* Links */}
                     <div className="flex items-center gap-3 pt-4 border-t border-border/40 mt-auto">
-                        <ProjectLink href={project.liveLink } icon={<ExternalLink className="w-4 h-4" />} label="Live Demo" primary />
-                        <ProjectLink href={project.githubLink } icon={<Github className="w-4 h-4" />} label="Source Code" />
+                        <ProjectLink href={project.liveLink} icon={<ExternalLink className="w-4 h-4" />} label="Live Demo" primary />
+                        <ProjectLink href={project.githubLink} icon={<Github className="w-4 h-4" />} label="Source Code" />
                     </div>
                 </div>
             </div>

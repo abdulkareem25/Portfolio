@@ -144,7 +144,7 @@ export const ContactSection = () => {
       const msg =
         err?.response?.data?.errors?.[0]?.msg ||
         err?.response?.data?.message ||
-        "Something went wrong. Please try again.";
+        "Something went wrong. Please try later.";
       setServerError(msg);
     }
   };
@@ -228,28 +228,38 @@ export const ContactSection = () => {
           </div>
 
           {/* ── Right: form card ── */}
-          <div className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg h-full flex flex-col">
+          <div className="bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg h-full flex flex-col min-h-[480px]">
 
             <p className={cn(sectionLabel, "mb-6")}>Send a Message</p>
 
             {/* Success state */}
             {status === "success" && (
-              <div className="flex-1 flex flex-col items-center justify-center gap-4 text-center animate-fade-in">
-                <div className="w-14 h-14 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center">
-                  <CheckCircle className="text-green-400" size={28} />
+              <div className="flex-1 flex flex-col items-center justify-center gap-5 text-center animate-fade-in py-8">
+                {/* Pulsing ring + icon */}
+                <div className="relative flex items-center justify-center">
+                  <div className="absolute w-24 h-24 rounded-full bg-green-500/10 animate-ping" style={{ animationDuration: "2s" }} />
+                  <div className="absolute w-20 h-20 rounded-full bg-green-500/15" />
+                  <div className="relative w-16 h-16 rounded-full bg-green-500/20 border-2 border-green-500/40 flex items-center justify-center shadow-lg shadow-green-500/10">
+                    <CheckCircle className="text-green-500" size={32} />
+                  </div>
                 </div>
-                <p className="text-base font-semibold text-foreground">
-                  Message Sent!
-                </p>
-                <p className="text-sm text-muted-foreground max-w-xs">
-                  Thanks for reaching out. I&apos;ll get back to you as soon as
-                  possible.
-                </p>
+
+                {/* Copy */}
+                <div className="space-y-2">
+                  <p className="text-xl font-bold text-foreground">Message Sent!</p>
+                  <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
+                    Thanks for reaching out. I&apos;ll get back to you as soon as possible.
+                  </p>
+                </div>
+
+                {/* Divider */}
+                <div className="w-12 h-px bg-border/60" />
+
                 <button
                   onClick={resetStatus}
-                  className="mt-1 text-xs text-primary hover:underline underline-offset-2"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-primary/50 text-primary bg-primary/10 hover:bg-primary/20 hover:border-primary/80 hover:scale-[1.03] active:scale-95 transition-all duration-300"
                 >
-                  Send another message →
+                  Send another message
                 </button>
               </div>
             )}

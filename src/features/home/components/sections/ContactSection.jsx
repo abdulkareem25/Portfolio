@@ -124,14 +124,14 @@ export const ContactSection = () => {
                 title={link.label}
                 style={{ animationDelay: `${i * 60}ms` }}
                 className={cn(
-                  "group flex flex-col items-center justify-center gap-2 p-4 sm:py-4 sm:px-2 rounded-2xl",
-                  "bg-card/60 border border-border/50 backdrop-blur-md",
+                  "group flex flex-col items-center justify-center sm:gap-2 sm:py-4 sm:px-2 rounded-2xl",
+                  "sm:bg-card/60 sm:border sm:border-border/50 sm:backdrop-blur-md",
                   "transition-all duration-300",
-                  "hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40 hover:bg-card/80",
-                  "relative overflow-hidden"
+                  "hover:-translate-y-1.5 sm:hover:shadow-xl sm:hover:shadow-primary/10 sm:hover:border-primary/40 sm:hover:bg-card/80",
+                  "relative sm:overflow-hidden"
                 )}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-primary/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                <div className="hidden sm:block absolute inset-0 bg-gradient-to-b from-primary/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                 <div className="relative w-10 h-10 rounded-xl bg-background/50 border border-border/40 group-hover:border-primary/30 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/5">
                   <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
                 </div>

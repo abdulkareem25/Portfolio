@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StarBackground } from "../StarBackground";
-import { Header } from "../Header";
-import { Footer } from "../Footer";
+import { StarBackground } from "../../shared/components/StarBackground";
 import { ArrowLeft, Home } from "lucide-react";
 
 /* ── Floating digit particle ─────────────────────────────────── */
@@ -95,9 +93,6 @@ export const NotFoundPage = () => {
       {/* Background effects */}
       <StarBackground />
 
-      {/* Nav */}
-      <Header />
-
       {/* Background floating 404 digits */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-[1]">
         {BG_DIGITS.map((d, i) => (
@@ -188,7 +183,6 @@ export const NotFoundPage = () => {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 };

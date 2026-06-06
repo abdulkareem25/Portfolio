@@ -33,9 +33,9 @@ export const ThemeToggle = () => {
       className="rounded-full transition-colors duration-300 cursor-pointer"
     >
       {isDarkMode ? (
-        <Sun className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors duration-300" />
+        <Sun className="h-6 w-6 text-muted-foreground hover:text-foreground transition-colors duration-300" />
       ) : (
-        <Moon className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors duration-300" />
+        <Moon className="h-6 w-6 text-muted-foreground hover:text-foreground transition-colors duration-300" />
       )}
     </button>
   );

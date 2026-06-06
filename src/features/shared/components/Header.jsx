@@ -15,12 +15,32 @@ const navItems = [
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   // Detect scroll for background change
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Intersection Observer for scroll spy (active nav item)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px" } // Triggers when section crosses the middle of the screen
+    );
+
+    const sections = navItems.map((item) => document.querySelector(item.href)).filter(Boolean);
+    sections.forEach((s) => observer.observe(s));
+
+    return () => observer.disconnect();
   }, []);
 
   // Lock/unlock body scroll via CSS class
@@ -43,35 +63,46 @@ export const Header = () => {
         className={cn(
           "fixed top-0 left-0 right-0 w-full transition-all duration-300 z-[60]",
           isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm"
+            ? "bg-card/70 backdrop-blur-md border-b border-border/50 shadow-sm"
             : "bg-transparent",
           "md:py-4 py-3"
         )}
       >
         <div className="container flex items-center justify-between">
           <a
-            className="text-xl font-bold text-primary flex items-center group transition-transform hover:scale-105"
+            className="text-xl font-extrabold flex items-center group transition-transform hover:scale-105"
             href="#hero"
           >
-            <span className="relative z-10 whitespace-nowrap">
-              <span className="text-glow text-foreground group-hover:text-primary transition-colors">Abdul</span>
-              {" "}Kareem
+            <span className="relative z-10 whitespace-nowrap text-muted-foreground transition-colors duration-300">
+              <span className="text-foreground transition-colors duration-300 group-hover:text-muted-foreground">Abdul</span>
+              {" "}<span className="group-hover:text-foreground transition-colors duration-300">Kareem</span>
             </span>
           </a>
 
           {/* desktop nav */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-300 relative group py-2"
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full opacity-80"></span>
-              </a>
-            ))}
-            <div className="pl-4 border-l border-border/50">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors duration-300 relative group py-2",
+                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {item.name}
+                  <span 
+                    className={cn(
+                      "absolute bottom-0 left-0 h-0.5 transition-all duration-300 rounded-full opacity-80",
+                      isActive ? "bg-foreground w-full" : "bg-foreground/50 w-0 group-hover:w-full"
+                    )} 
+                  />
+                </a>
+              );
+            })}
+            <div className="pl-4 border-l flex border-border/50">
               <ThemeToggle />
             </div>
           </div>
@@ -113,16 +144,22 @@ export const Header = () => {
             </button>
 
             <div className="flex flex-col space-y-8 w-full max-w-xs px-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={handleLinkClick}
-                  className="text-2xl font-semibold text-foreground/80 hover:text-primary transition-colors duration-300 py-2 border-b border-border/20 last:border-0"
-                >
-                  {item.name}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.slice(1);
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={handleLinkClick}
+                    className={cn(
+                      "text-2xl font-semibold transition-colors duration-300 py-2 border-b border-border/20 last:border-0",
+                      isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {item.name}
+                  </a>
+                );
+              })}
             </div>
           </div>,
           document.body

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { loginThunk, signupThunk, logout, clearError } from '../auth.slice';
+import { loginThunk, signupThunk, logout, clearError } from '../state/auth.slice';
 
 export const useAuth = () => {
   const { token, isAuthenticated, loading, error } = useSelector(

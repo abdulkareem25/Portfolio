@@ -1,11 +1,11 @@
 import { Footer } from "../../shared/components/Footer";
 import { Header } from "../../shared/components/Header";
 import { StarBackground } from "../../shared/components/StarBackground";
-import { AboutSection } from "../../shared/components/sections/AboutSection";
-import { ContactSection } from "../../shared/components/sections/ContactSection";
-import { HeroSection } from "../../shared/components/sections/HeroSection";
-import { ProjectsSection } from "../../shared/components/sections/ProjectsSection";
-import { SkillsSection } from "../../shared/components/sections/SkillsSection";
+import { AboutSection } from "../components/sections/AboutSection";
+import { ContactSection } from "../components/sections/ContactSection";
+import { HeroSection } from "../components/sections/HeroSection";
+import { ProjectsSection } from "../components/sections/ProjectsSection";
+import { SkillsSection } from "../components/sections/SkillsSection";
 
 export const HomePage = () => {
   return (

@@ -44,7 +44,7 @@ const ProjectCard = ({ project, position, index, isCenter, onSlideClick, transit
                 {/* Image */}
                 <div className="h-48 lg:h-56 overflow-hidden bg-muted/20 relative shrink-0">
                     <img
-                        src={(project.image || project.imageUrl) && (project.image || project.imageUrl) !== "#" ? (project.image || project.imageUrl) : FALLBACK_SVG(project.title)}
+                        src={project.imageLink !== "#" ? project.imageLink : FALLBACK_SVG(project.title)}
                         alt={project.title}
                         draggable="false"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

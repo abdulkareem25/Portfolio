@@ -298,3 +298,27 @@ html {
 .card-description-scroll::-webkit-scrollbar {
   display: none;
 }
+
+/* ── GSAP scroll animation performance hints ──────────────────── */
+.gsap-hero-greeting,
+.gsap-hero-title,
+.gsap-hero-subtitle,
+.gsap-hero-cta,
+.gsap-about-heading,
+.gsap-about-subtext,
+.gsap-about-left,
+.gsap-about-right,
+.gsap-skills-heading,
+.gsap-skills-subtext,
+.gsap-skill-item,
+.gsap-projects-heading,
+.gsap-projects-subtext,
+.gsap-projects-carousel,
+.gsap-projects-cta,
+.gsap-contact-heading,
+.gsap-contact-subtext,
+.gsap-contact-whatsapp,
+.gsap-contact-divider,
+.gsap-contact-social-item {
+  will-change: transform, opacity;
+}

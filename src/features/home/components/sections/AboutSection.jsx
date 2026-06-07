@@ -48,10 +48,10 @@ export const AboutSection = () => {
 
         {/* ── Section header ── */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
+          <h2 className="gsap-about-heading text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
             About <span className="text-muted-foreground">Me</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+          <p className="gsap-about-subtext text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
             A developer who turns ideas into reliable digital products. Always building, always improving.
           </p>
         </div>
@@ -62,7 +62,7 @@ export const AboutSection = () => {
           {/* ── Left: bio + actions ── */}
           <div
             className={cn(
-              "bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg",
+              "gsap-about-left bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg",
               "flex flex-col justify-between h-full gap-8",
               "transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
             )}
@@ -143,7 +143,7 @@ export const AboutSection = () => {
           {/* ── Right: expertise cards ── */}
           <div
             className={cn(
-              "bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg",
+              "gsap-about-right bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg",
               "flex flex-col h-full",
               "transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
             )}

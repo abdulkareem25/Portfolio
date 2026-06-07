@@ -95,10 +95,10 @@ export const SkillsSection = () => {
 
         {/* ── Section header ── */}
         <div className="text-center mb-14 w-full">
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
+          <h2 className="gsap-skills-heading text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
             My <span className="text-muted-foreground">Skills</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+          <p className="gsap-skills-subtext text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
             The tools, languages, and frameworks I use to bring ideas to life. Constantly learning and evolving.
           </p>
         </div>
@@ -144,7 +144,7 @@ export const SkillsSection = () => {
                       <div
                         key={skill.name}
                         className={cn(
-                          "flex items-center gap-2.5 px-4 md:px-5 py-2.5 md:py-3 rounded-full",
+                          "gsap-skill-item flex items-center gap-2.5 px-4 md:px-5 py-2.5 md:py-3 rounded-full",
                           "bg-card/60 border border-border/50 backdrop-blur-md",
                           "transition-all duration-300 group/skill",
                           "hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 hover:bg-card/80 cursor-default"
@@ -176,7 +176,7 @@ export const SkillsSection = () => {
                       <div
                         key={skill.name}
                         className={cn(
-                          "flex items-center gap-2.5 px-4 md:px-5 py-2.5 md:py-3 rounded-full",
+                          "gsap-skill-item flex items-center gap-2.5 px-4 md:px-5 py-2.5 md:py-3 rounded-full",
                           "bg-card/40 border border-border/30 backdrop-blur-md opacity-85",
                           "transition-all duration-300 group/skill",
                           "hover:opacity-100 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/15 hover:border-primary/40 hover:bg-card/60 cursor-default"

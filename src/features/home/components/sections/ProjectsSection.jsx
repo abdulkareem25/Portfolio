@@ -7,76 +7,74 @@ const TRANSITION_MS = 400;
 
 /* ── Static project data ─────────────────────────────────────── */
 const PROJECTS = [
-  {
-    _id: "1",
-    title: "MindVault",
-    description:
-      "An AI-powered personal memory assistant for coding, deen, admin, and life. It combines real-time chat, persistent memory, secure authentication, and AI-driven conversations to help organize and retrieve information contextually.",
-    techStack: ["React", "Redux Toolkit", "Socket.io", "MongoDB", "LangChain", "Mistral AI"],
-    githubLink: "https://github.com/abdulkareem25/mindvault",
-    liveLink: "https://your-live-link.com",
-    image: "/images/projects/mindvault.png",
-  },
-  {
-    _id: "2",
-    title: "Clipzy",
-    description:
-      "A modern social media platform for sharing content and building communities. It includes a full-stack setup with authentication, content sharing, and a scalable backend workflow.",
-    techStack: ["React", "Express.js", "MongoDB", "JWT Authentication", "REST APIs"],
-    githubLink: "https://github.com/abdulkareem25/clipzy",
-    liveLink: "https://your-live-link.com",
-    image: "/images/projects/clipzy.png",
-  },
-  {
-    _id: "3",
-    title: "Dev-Sync",
-    description:
-      "A modern full-stack platform built for seamless team collaboration with an AI-powered experience. Designed to support communication, coordination, and productivity in one place.",
-    techStack: ["React", "Full-Stack", "AI Integration", "Realtime Features"],
-    githubLink: "https://github.com/abdulkareem25/Dev-Sync",
-    liveLink: "https://your-live-link.com",
-    image: "/images/projects/dev-sync.png",
-  },
-  {
-    _id: "4",
-    title: "Personal OS",
-    description:
-      "A React-based desktop environment simulator styled like macOS. It works as an interactive portfolio and personal dashboard, presenting your work in a visually unique way.",
-    techStack: ["React", "SCSS", "JavaScript", "HTML"],
-    githubLink: "https://github.com/abdulkareem25/personal-os",
-    liveLink: "https://your-live-link.com",
-    image: "/images/projects/personal-os.png",
-  },
-  {
-    _id: "5",
-    title: "Portfolio",
-    description:
-      "Your personal portfolio website built to showcase projects, skills, and experience with a modern, responsive design and a polished developer-focused presentation.",
-    techStack: ["React", "Redux Toolkit", "Tailwind CSS", "Vite"],
-    githubLink: "https://github.com/abdulkareem25/Portfolio",
-    liveLink: "https://your-live-link.com",
-    image: "/images/projects/portfolio.png",
-  },
-  {
-    _id: "6",
-    title: "Portfolio Backend",
-    description:
-      "The backend API for your personal portfolio website, built to support a clean, structured, and reliable full-stack setup.",
-    techStack: ["Node.js", "Express.js", "MongoDB"],
-    githubLink: "https://github.com/abdulkareem25/portfolio-backend",
-    liveLink: "https://your-live-link.com",
-    image: "/images/projects/portfolio-backend.png",
-  },
-  {
-    _id: "7",
-    title: "Notes App",
-    description:
-      "A simple and elegant notes application built with React and Vite. It lets users create, view, and manage notes with persistent local storage.",
-    techStack: ["React", "Vite", "Local Storage", "CSS"],
-    githubLink: "https://github.com/abdulkareem25/notes-app",
-    liveLink: "https://your-liv-link.com",
-    image: "/images/projects/notes-app.png",
-  },
+    {
+        _id: "1",
+        title: "MindVault",
+        description:
+            "An AI-powered personal memory assistant for coding, deen, admin, and life. It combines real-time chat, persistent memory, secure authentication, and AI-driven conversations to help organize and retrieve information contextually.",
+        techStack: ["React", "Redux Toolkit", "Socket.io", "MongoDB", "LangChain", "Mistral AI"],
+        githubLink: "https://github.com/abdulkareem25/mindvault",
+        liveLink: "https://mindvault-6exy.onrender.com/",
+        imageLink: "https://ik.imagekit.io/abdulkareem25/projects/MindVault.png",
+    },
+    {
+        _id: "2",
+        title: "Clipzy",
+        description:
+            "A modern social media platform for sharing content and building communities. It includes a full-stack setup with authentication, content sharing, and a scalable backend workflow.",
+        techStack: ["React", "Express.js", "MongoDB", "JWT Authentication", "REST APIs"],
+        githubLink: "https://github.com/abdulkareem25/clipzy",
+        liveLink: "https://clipzy-ivrr.onrender.com",
+        imageLink: "https://ik.imagekit.io/abdulkareem25/projects/clipzy.png",
+    },
+    {
+        _id: "3",
+        title: "Dev-Sync",
+        description:
+            "A modern full-stack platform built for seamless team collaboration with an AI-powered experience. Designed to support communication, coordination, and productivity in one place.",
+        techStack: ["React", "Full-Stack", "AI Integration", "Realtime Features"],
+        githubLink: "https://github.com/abdulkareem25/Dev-Sync",
+        liveLink: "https://your-live-link.com",
+        imageLink: "https://ik.imagekit.io/abdulkareem25/projects/DevSync.png",
+    },
+    {
+        _id: "4",
+        title: "Personal OS",
+        description:
+            "A React-based desktop environment simulator styled like macOS. It works as an interactive portfolio and personal dashboard, presenting your work in a visually unique way.",
+        techStack: ["React", "SCSS", "JavaScript", "HTML"],
+        githubLink: "https://github.com/abdulkareem25/personal-os",
+        liveLink: "https://abdulkareem25.github.io/personal-os/",
+        imageLink: "https://ik.imagekit.io/abdulkareem25/projects/PersonalOS.png",
+    },
+    {
+        _id: "5",
+        title: "Portfolio",
+        description:
+            "My personal portfolio website built to showcase projects, skills, and experience with a modern, responsive design and a polished developer-focused presentation.",
+        techStack: ["React", "Redux Toolkit", "Tailwind CSS", "Vite"],
+        githubLink: "https://github.com/abdulkareem25/Portfolio",
+        liveLink: "https://abdulkareem25.github.io/Portfolio/",
+        imageLink: "https://ik.imagekit.io/abdulkareem25/projects/Portfolio.png",
+    },
+    {
+        _id: "6",
+        title: "PromptGen",
+        description: "AI-powered prompt engineering platform that transforms basic prompts into five expertly crafted variations. Saves 70% time with intelligent enhancement, real-time processing, and secure API management for superior AI outputs.",
+        techStack: ["React", "Node.js", "MongoDB", "TailwindCSS"],
+        githubLink: "https://github.com/abdulkareem25/promptgen",
+        liveLink: "https://your-live-link.com",
+        imageLink: "https://ik.imagekit.io/abdulkareem25/projects/promptgen.png",
+    },
+    {
+        _id: "7",
+        title: "Inter Batch Showdown",
+        description: "Professional web-based visual design editor with intuitive drag-and-drop interface, real-time property editing, layer management, and advanced transformations. Export designs as JSON or HTML for seamless web publishing.",
+        techStack: ["Vanilla JavaScript", "HTML5", "CSS3", "DOM APIs"],
+        githubLink: "https://github.com/abdulkareem25/inter-batch-showdown",
+        liveLink: "https://abdulkareem25-inter-batch-showdown.vercel.app/",
+        imageLink: "https://ik.imagekit.io/abdulkareem25/projects/Inter.png",
+    },
 ];
 
 export const ProjectsSection = () => {

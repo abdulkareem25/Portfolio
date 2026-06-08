@@ -18,14 +18,7 @@ A modern, responsive portfolio web application built with React and Vite on the 
 - **Project Showcase** - Detailed project cards with descriptions
 - **Star Background** - Animated background effect
 
-### Backend
-- **RESTful API** - Complete REST endpoints for all features
-- **User Authentication** - Secure JWT-based auth system
-- **Database Integration** - MongoDB support
-- **File Upload** - Project and profile media upload
-- **Validation** - Input validation for all endpoints
-- **Error Handling** - Comprehensive error middleware
-- **Services Architecture** - Clean separation of concerns
+
 
 ## 🛠️ Technologies Used
 
@@ -37,20 +30,13 @@ A modern, responsive portfolio web application built with React and Vite on the 
 - **CSS3** - Modern styling with animations
 - **ESLint** - Code quality
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **MongoDB** - NoSQL database
-- **JWT** - Authentication
-- **Multer** - File upload handling
-- **Dotenv** - Environment configuration
+
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
-- MongoDB instance
 
 ### Frontend Installation
 
@@ -73,30 +59,7 @@ The application will be available at `http://localhost:5173`
 npm run build
 ```
 
-### Backend Installation
 
-```bash
-cd Backend
-npm install
-```
-
-### Environment Setup
-
-Create a `.env` file in the Backend directory:
-
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-```
-
-### Run Backend Server
-
-```bash
-npm start
-```
-
-Server will run on `http://localhost:5000`
 
 ## 📁 Project Structure
 
@@ -116,31 +79,11 @@ src/
 └── index.css             # Global styles
 ```
 
-### Backend Structure
-```
-src/
-├── app.js                # Express app setup
-├── config/              # Configuration files
-├── controllers/         # Route controllers
-├── middlewares/         # Custom middlewares
-├── models/             # Database models
-├── routes/             # API routes
-├── services/           # Business logic
-├── utils/              # Utility functions
-└── validators/         # Input validation
-```
-
 ## 📝 Available Scripts
-
-### Frontend
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run lint` - Run ESLint
 - `npm run preview` - Preview production build
-
-### Backend
-- `npm start` - Start server
-- `npm run dev` - Run with nodemon (if configured)
 
 ## 🔐 Authentication
 

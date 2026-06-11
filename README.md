@@ -1,6 +1,6 @@
-# Portfolio - Full Stack Application
+# Portfolio - Frontend Application
 
-A modern, responsive portfolio web application built with React and Vite on the frontend, and Node.js/Express on the backend. Showcase your projects, skills, and experience with a sleek, interactive interface.
+A modern, responsive portfolio web application built with React and Vite. Showcase your projects, skills, and experience with a sleek, interactive interface.
 
 ## ✨ Features
 
@@ -22,7 +22,6 @@ A modern, responsive portfolio web application built with React and Vite on the 
 
 ## 🛠️ Technologies Used
 
-### Frontend
 - **React 18** - UI library
 - **Vite** - Modern build tool
 - **Redux Toolkit** - State management
@@ -87,45 +86,39 @@ src/
 
 ## 🔐 Authentication
 
-The application uses JWT (JSON Web Tokens) for secure authentication. Users can:
-- Create an account via signup
-- Login with credentials
-- Maintain session with secure tokens
+The application provides secure authentication UI:
+- Login and signup pages
 - Protected routes for authenticated users
+- Session management with tokens
 
-## 📧 Contact & Messaging
+## 📧 Contact Form
 
-Users can:
-- Send contact messages through the Contact Section
-- Messages are stored in the database
-- Admin can view and manage messages
+The application includes a contact form for users to:
+- Send messages through the Contact Section
+- Form validation before submission
+- User-friendly feedback messages
 
 ## 🎨 Customization
 
-### Adding Projects
-1. Navigate to the Projects Section
-2. Use the admin interface to add new projects
-3. Upload project images and descriptions
-
-### Managing Skills
-1. Use the admin Skills management
-2. Add, edit, or delete skills
-3. Organize by categories
+Easily customize the application:
+- Modify component styling in CSS files
+- Update theme colors and fonts
+- Customize sections in the home feature module
+- Add or remove navigation items
 
 ## 🐛 Troubleshooting
 
 ### Port Already in Use
-- Change port in `.env` or backend config
-- Kill the process using the port
+- Change port in Vite config or environment settings
+- Kill the process using port 5173
 
-### MongoDB Connection Issues
-- Verify MongoDB is running
-- Check connection string in `.env`
-- Ensure database credentials are correct
+### Build Issues
+- Clear `node_modules` and reinstall: `rm -rf node_modules && npm install`
+- Clear Vite cache: `rm -rf .vite`
 
-### CORS Issues
-- Verify backend CORS configuration
-- Check frontend API base URL
+### Styling Issues
+- Check CSS file imports in components
+- Verify theme toggle functionality in browser console
 
 ## 📄 License
 

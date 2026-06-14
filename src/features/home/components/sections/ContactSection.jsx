@@ -59,18 +59,18 @@ export const ContactSection = () => {
 
         {/* ── Section header ── */}
         <div className="text-center mb-14">
-          <h2 className="gsap-contact-heading text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
             Get In{" "}
             <span className="text-muted-foreground">Touch</span>
           </h2>
-          <p className="gsap-contact-subtext text-muted-foreground max-w-lg mx-auto text-base md:text-lg leading-relaxed">
+          <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg leading-relaxed">
             Have a project in mind or want to collaborate?{" "}
             I&apos;m always open to new opportunities reach out and I&apos;ll get back to you fast.
           </p>
         </div>
 
         {/* ── WhatsApp CTA card ── */}
-        <div className="gsap-contact-whatsapp w-full max-w-md mb-14">
+        <div className="w-full max-w-md mb-14">
           <a
             href="https://wa.me/+917305680655"
             target="_blank"
@@ -103,7 +103,7 @@ export const ContactSection = () => {
         </div>
 
         {/* ── Divider with label ── */}
-        <div className="gsap-contact-divider flex items-center gap-4 w-full max-w-md mb-10">
+        <div className="flex items-center gap-4 w-full max-w-md mb-10">
           <div className="flex-1 h-px bg-border/40" />
           <span className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-widest whitespace-nowrap">
             Or find me on
@@ -124,7 +124,7 @@ export const ContactSection = () => {
                 title={link.label}
                 style={{ animationDelay: `${i * 60}ms` }}
                 className={cn(
-                  "gsap-contact-social-item group flex flex-col items-center justify-center sm:gap-2 sm:py-4 sm:px-2 rounded-2xl",
+                  "group flex flex-col items-center justify-center sm:gap-2 sm:py-4 sm:px-2 rounded-2xl",
                   "sm:bg-card/60 sm:border sm:border-border/50 sm:backdrop-blur-md",
                   "transition-all duration-300",
                   "hover:-translate-y-1.5 sm:hover:shadow-xl sm:hover:shadow-primary/10 sm:hover:border-primary/40 sm:hover:bg-card/80",

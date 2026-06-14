@@ -19,12 +19,10 @@ export const HeroSection = () => {
 
           {/* ── Headline ── */}
           <div className="space-y-2">
-            {/* gsap-hero-greeting: GSAP controls opacity + y (was animate-fade-in) */}
-            <p className="gsap-hero-greeting text-muted-foreground text-xl md:text-2xl font-medium tracking-wide">
+            <p className="text-muted-foreground text-xl md:text-2xl font-medium tracking-wide">
               Hi, I&apos;m Abdul Kareem
             </p>
-            {/* gsap-hero-title: GSAP controls opacity + y (was animate-fade-in-delay-1) */}
-            <h1 className="gsap-hero-title text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.08]">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.08]">
               Full-Stack{" "}
               <span
                 style={{
@@ -41,16 +39,14 @@ export const HeroSection = () => {
           </div>
 
           {/* ── Sub-copy ── */}
-          {/* gsap-hero-subtitle: GSAP controls opacity + y (was animate-fade-in-delay-2) */}
-          <p className="gsap-hero-subtitle text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             I enjoy turning complex ideas into practical products, building
             reliable systems, and constantly improving through hands-on
             development.
           </p>
 
           {/* ── CTA buttons ── */}
-          {/* gsap-hero-cta: GSAP controls opacity + y + scale (was animate-fade-in-delay-3) */}
-          <div className="gsap-hero-cta flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm pt-2">
             {/* Primary: View Projects */}
             <a
               href="#projects"

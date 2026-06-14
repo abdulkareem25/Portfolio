@@ -126,16 +126,16 @@ export const ProjectsSection = () => {
 
                 {/* Heading */}
                 <div className="text-center mb-16">
-                    <h2 className="gsap-projects-heading text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
+                    <h2 className="text-4xl md:text-6xl font-extrabold mb-5 tracking-tight leading-[1.1]">
                         Featured <span className="text-muted-foreground">Projects</span>
                     </h2>
-                    <p className="gsap-projects-subtext text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+                    <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
                         Here are some of my recent projects, each crafted with attention to detail, performance, and user experience.
                     </p>
                 </div>
 
                 {/* Carousel */}
-                <div className="gsap-projects-carousel relative max-w-4xl mx-auto">
+                <div className="relative max-w-4xl mx-auto">
                     {/* Track */}
                     <div
                         className="relative h-[420px] lg:h-[480px]"
@@ -189,7 +189,7 @@ export const ProjectsSection = () => {
                 </div>
 
                 {/* CTA */}
-                <div className="gsap-projects-cta text-center mt-14">
+                <div className="text-center mt-14">
                     <a
                         href="https://github.com/abdulkareem25/"
                         target="_blank"

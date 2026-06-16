@@ -1,14 +1,5 @@
 import { useEffect, useState } from "react";
 
-/* Light-mode floating orb definitions — sizes, colours, positions, durations */
-const LIGHT_ORBS = [
-  { id: 0, w: 520, h: 520, top: "-12%", left: "-8%", color: "hsl(250 70% 78% / 0.18)", blur: 80, delay: "0s", dur: "14s" },
-  { id: 1, w: 420, h: 420, top: "55%", left: "72%", color: "hsl(270 65% 80% / 0.16)", blur: 70, delay: "3s", dur: "18s" },
-  { id: 2, w: 280, h: 280, top: "30%", left: "18%", color: "hsl(230 60% 82% / 0.14)", blur: 60, delay: "6s", dur: "22s" },
-  { id: 3, w: 350, h: 350, top: "-5%", left: "60%", color: "hsl(260 65% 76% / 0.13)", blur: 75, delay: "1.5s", dur: "16s" },
-  { id: 4, w: 200, h: 200, top: "75%", left: "10%", color: "hsl(240 55% 80% / 0.12)", blur: 50, delay: "9s", dur: "20s" },
-];
-
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
@@ -129,24 +120,6 @@ export const StarBackground = () => {
             top: meteor.y + "%",
             animationDelay: meteor.delay,
             animationDuration: meteor.animationDuration + "s",
-          }}
-        />
-      ))}
-
-      {/* ── Light mode: drifting ambient orbs ─────────────────── */}
-      {!isDarkMode && LIGHT_ORBS.map((orb) => (
-        <div
-          key={orb.id}
-          className="light-orb"
-          style={{
-            width: orb.w + "px",
-            height: orb.h + "px",
-            top: orb.top,
-            left: orb.left,
-            background: orb.color,
-            filter: `blur(${orb.blur}px)`,
-            animationDelay: orb.delay,
-            animationDuration: orb.dur,
           }}
         />
       ))}

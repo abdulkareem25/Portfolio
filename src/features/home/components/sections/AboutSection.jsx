@@ -119,7 +119,7 @@ export const AboutSection = () => {
 
                 {/* View Resume */}
                 <a
-                  href="https://drive.google.com/file/d/16PlR4360p4FmzUXt7DWRqVPtvr11UoJB/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1qlZZ2SKcGUpSiesv7WXGz3Pq14q5VGyW/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
